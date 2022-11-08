@@ -1,0 +1,67 @@
+<div class="container border" id="attendance">
+  Registre su asistencia
+  <div class="row">
+    <div class="form-group col-6">
+      <input
+        type="text"
+        name="nombre"
+        placeholder="Ingrese sus nombres"
+        [(ngModel)]="students.name"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-6">
+      <input
+        type="email"
+        name="raza"
+        placeholder="Ingrese sus apellidos"
+        [(ngModel)]="students.surnames"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-6">
+      <input
+        type="text"
+        name="edad"
+        placeholder="Ingrese su correo electrónico"
+        [(ngModel)]="students.email"
+        class="form-control"
+      />
+    </div>
+    <div class="form-group col-6">
+      <input
+        type="text"
+        name="edad"
+        placeholder="Ingrese su lugar de residencia"
+        [(ngModel)]="students.address"
+        class="form-control"
+      />
+    </div>
+  </div>
+  <button type="submit" class="btn btn-primary" (click)="save()">
+    Guardar
+  </button>
+</div>
+
+<br />
+
+<div class="container border">
+  <table class="table">
+    <thead>
+      <th>N°</th>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Correo electrónico</th>
+      <th>Lugar de residencia</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let list of studentList" [class.active]="list == students">
+        <td>{{ list.id }}</td>
+        <td>{{ list.name }}</td>
+        <td>{{ list.surnames }}</td>
+        <td>{{ list.email }}</td>
+        <td>{{ list.address }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
